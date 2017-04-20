@@ -1,1 +1,40 @@
-{     "devDependencies": {         "tingodb": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-tingodb",     "homepage": "https://github.com/npmtest/node-npmtest-tingodb",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-tingodb.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [tingodb (v0.5.1)](http://www.tingodb.com)  [![npm package](https://img.shields.io/npm/v/npmtest-tingodb.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-tingodb) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-tingodb.svg)](https://travis-ci.org/npmtest/node-npmtest-tingodb)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "tingodb": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-tingodb",
+    "keywords": [
+        "coverage",
+        "test",
+        "tingodb"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_tingodb.js",
+    "name": "npmtest-tingodb",
+    "nameAlias": "npmtest_tingodb",
+    "nameOriginal": "npmtest-tingodb",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-tingodb.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
